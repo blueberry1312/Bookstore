@@ -49,6 +49,7 @@
 ### Key Features <a name="key-features"></a>
 
 - Navigation component that includes links to / and /categories.
+- Add, Remove and Display books.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,8 +73,8 @@ Example command:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone git@github.com:blueberry1312/math-magician.git
-  cd math-magician
+  git clone git@github.com:blueberry1312/bookstore.git
+  cd bookstore
 ```
 
 ### Install
@@ -116,6 +117,7 @@ To run tests, run the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - Add subpage categories.
+- Style all app.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
