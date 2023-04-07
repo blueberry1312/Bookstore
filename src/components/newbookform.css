@@ -31,6 +31,15 @@
   color: #c4c4c4;
 }
 
+.input::selection {
+  color: #c4c4c4;
+}
+
+.input option[disabled],
+.input:not(:focus) {
+  color: #c4c4c4;
+}
+
 .title-input {
   width: 90%;
 }
