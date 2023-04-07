@@ -30,7 +30,7 @@ a {
 }
 
 .nav-link {
-  opacity: 0.5;
+  opacity: 0.25;
   font-family: "Montserrat", sans-serif;
   font-size: 0.813rem;
   color: #121212;
@@ -58,4 +58,8 @@ a {
   border-radius: 50%;
   border: solid 1px #e8e8e8;
   background-color: white;
+}
+
+.active {
+  opacity: 1;
 }
