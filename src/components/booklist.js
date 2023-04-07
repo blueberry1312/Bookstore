@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBooks } from '../redux/books/booksSlice';
 import Book from './book';
+import './books.css';
 
 function BookList() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function BookList() {
   }
   return (
     <div>
-      <ul>
+      <ul className="books">
         {Object.values(books).map((book) => (
           <Book
             key={book.id}

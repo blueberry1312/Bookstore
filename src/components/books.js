@@ -3,10 +3,10 @@ import NewBookForm from './newbookform';
 
 function Books() {
   return (
-    <div>
-      <h1>Books:</h1>
+    <div className="container">
       <BookList />
-      <h2>Add a book:</h2>
+      <div className="horizontal-divider" />
+      <h2 className="form-title">ADD NEW BOOK</h2>
       <NewBookForm />
     </div>
   );

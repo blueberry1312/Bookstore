@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook, fetchBooks } from '../redux/books/booksSlice';
 import AddBookButton from './addbookbutton';
+import './newbookform.css';
 
 function NewBookForm() {
   const [title, setTitle] = useState('');
@@ -36,18 +37,19 @@ function NewBookForm() {
   }, [addedBookId]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-form" onSubmit={handleSubmit}>
       <label htmlFor="title-input">
-        Title:
-        <input id="title-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input id="title-input" type="text" className="input title-input" placeholder="Book title" value={title} onChange={(e) => setTitle(e.target.value)} required />
       </label>
       <label htmlFor="author-input">
-        Author:
-        <input id="author-input" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <input id="author-input" type="text" className="input author-input" placeholder="Book author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
       </label>
       <label htmlFor="category-input">
-        Category:
-        <input id="category-input" type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+        <select id="category-input" className="input category-input" value={category} onChange={(e) => setCategory(e.target.value)} required>
+          <option value="Action">Action</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Economy">Economy</option>
+        </select>
       </label>
       <AddBookButton onClick={handleSubmit} />
       {addedBookId !== '' && (
