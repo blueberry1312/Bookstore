@@ -5,7 +5,12 @@ const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/book
 const bookService = {
   async getBooks() {
     const response = await axios.get(`${API_URL}/books`);
-    return response.data;
+    const books = response.data;
+    const bookArray = Object.entries(books).map(([id, bookData]) => ({
+      id,
+      ...bookData,
+    }));
+    return bookArray;
   },
 
   async addBook(book) {

@@ -25,18 +25,16 @@ function BookList() {
       </div>
     );
   }
-
   return (
     <div>
-      <h2>Books:</h2>
       <ul>
         {Object.values(books).map((book) => (
           <Book
             key={book.id}
             id={book.id}
-            title={book.title}
-            author={book.author}
-            category={book.category}
+            title={book[0].title}
+            author={book[0].author}
+            category={book[0].category}
           />
         ))}
       </ul>

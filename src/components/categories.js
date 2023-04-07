@@ -1,6 +1,5 @@
 function Categories() {
   const handleClick = () => {
-    console.log('Status checked!');
   };
 
   return (
