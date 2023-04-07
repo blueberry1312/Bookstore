@@ -11,7 +11,7 @@ function RemoveBookButton({ id }) {
   };
 
   return (
-    <button type="button" onClick={handleClick}>Remove Book</button>
+    <button type="submit" onClick={handleClick}>Remove Book</button>
   );
 }
 

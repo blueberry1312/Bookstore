@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function AddBookButton({ onClick }) {
   return (
-    <button type="button" onClick={onClick}>
+    <button type="submit" onClick={onClick}>
       Add Book
     </button>
   );
