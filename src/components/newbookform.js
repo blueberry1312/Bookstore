@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, fetchBooks } from '../redux/books/booksSlice';
 import AddBookButton from './addbookbutton';
 
 function NewBookForm() {
@@ -9,17 +9,31 @@ function NewBookForm() {
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
+  const [addedBookId, setAddedBookId] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const id = uuidv4();
     dispatch(addBook({
       item_id: id, title, author, category,
-    }));
+    })).then(() => {
+      dispatch(fetchBooks());
+    });
+    setAddedBookId(id);
     setTitle('');
     setAuthor('');
     setCategory('');
   };
+
+  useEffect(() => {
+    if (addedBookId !== '') {
+      const timeoutId = setTimeout(() => {
+        setAddedBookId('');
+      }, 1000);
+      return () => clearTimeout(timeoutId);
+    }
+    return undefined;
+  }, [addedBookId]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -36,6 +50,12 @@ function NewBookForm() {
         <input id="category-input" type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
       </label>
       <AddBookButton onClick={handleSubmit} />
+      {addedBookId !== '' && (
+        <p>
+          A new book has been added with ID:
+          {addedBookId}
+        </p>
+      )}
     </form>
   );
 }
