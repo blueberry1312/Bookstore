@@ -1,24 +1,38 @@
 import PropTypes from 'prop-types';
+import React from 'react';
+import RemoveBookButton from './removebookbutton';
 
-function Book({ book, onDelete }) {
+function Book({
+  id, title, author, category,
+}) {
   return (
-    <li>
-      {book.title}
-      {' '}
-      by
-      {' '}
-      {book.author}
-      <button type="button" onClick={onDelete}>Delete</button>
-    </li>
+    <div>
+      <p>
+        ID:
+        {id}
+      </p>
+      <p>
+        Title:
+        {title}
+      </p>
+      <p>
+        Author:
+        {author}
+      </p>
+      <p>
+        Category:
+        {category}
+      </p>
+      <RemoveBookButton id={id} />
+    </div>
   );
 }
 
 Book.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-  onDelete: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;
